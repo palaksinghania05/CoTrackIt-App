@@ -13,6 +13,7 @@ class Countries extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black38,
         title: Text("Countries"),
+        automaticallyImplyLeading: false,
         actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
       ),
       body: Container(
@@ -46,7 +47,7 @@ class Countries extends StatelessWidget {
                             child: ListTile(
                               title: Text(countryData.name,
                                   style: TextStyle(
-                                      color: Colors.lime,
+                                      color: Colors.tealAccent,
                                       fontSize: 25,
                                       fontWeight: FontWeight.w600)),
                               subtitle: Text("Population : $population",

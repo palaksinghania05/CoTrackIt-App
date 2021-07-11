@@ -1,4 +1,5 @@
 import 'package:covid_app/countries.dart';
+import 'package:covid_app/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new CovidTrackerApp());
@@ -11,7 +12,7 @@ class CovidTrackerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Covid Tracker",
       home: Scaffold(
-        body: Countries(),
+        body: SplashScreen(),
       ),
     );
   }

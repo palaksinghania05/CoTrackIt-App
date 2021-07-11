@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:covid_app/country_request.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailedInfo extends StatelessWidget {
@@ -10,6 +13,8 @@ class DetailedInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = MediaQuery.of(context);
+    print(data.size.height);
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
@@ -27,20 +32,22 @@ class DetailedInfo extends StatelessWidget {
                     image: NetworkImage(
                         "https://media.istockphoto.com/vectors/black-virus-background-vector-id1214332278?k=6&m=1214332278&s=170667a&w=0&h=RKfTI8PtQonBak8UtkvArJ9DQEqQa3Sqjgf8kYrBwYo="),
                     fit: BoxFit.cover)),
-            child: Container(
                 child: Center(
-                    child: Card(
-                        color: Colors.black12,
-                        borderOnForeground: true,
-                        margin: EdgeInsets.only(
-                            left: 450, top: 50, right: 450, bottom: 50),
+                  child:Container(
+                      height: data.size.height-270,
+                       width: data.size.width - 40,
+                        decoration: BoxDecoration(
+                          color: Colors.black38,
+                          borderRadius: BorderRadius.circular(30),
+
+                        ),
                         child: ListView(children: [
                           SizedBox(
                             height: 10,
                           ),
                           Row(children: [
                             SizedBox(
-                              width: 50,
+                              width: 5,
                             ),
                             Text("Total cases: ",
                                 style: TextStyle(
@@ -74,7 +81,7 @@ class DetailedInfo extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 5,
                               ),
                               Text("Active cases: ",
                                   style: TextStyle(
@@ -109,7 +116,7 @@ class DetailedInfo extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 5,
                               ),
                               Text("Critical cases: ",
                                   style: TextStyle(
@@ -144,7 +151,7 @@ class DetailedInfo extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 5,
                               ),
                               Text("Deaths: ",
                                   style: TextStyle(
@@ -179,7 +186,7 @@ class DetailedInfo extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 5,
                               ),
                               Text("Recovered: ",
                                   style: TextStyle(
@@ -214,7 +221,7 @@ class DetailedInfo extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 5,
                               ),
                               Text("Tests performed: ",
                                   style: TextStyle(
@@ -246,6 +253,6 @@ class DetailedInfo extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                        ]))))));
+                        ])))));
   }
 }
