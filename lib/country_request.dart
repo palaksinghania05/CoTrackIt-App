@@ -16,9 +16,9 @@ class Country {
       this.recovered, this.tests, this.active, this.critical, this.flag);
 }
 
-Future fetchAllCountries() async {
-  var response =
-      await http.get(Uri.parse("https://corona.lmao.ninja/v2/countries"));
+Future<List<Country>> fetchAllCountries() async {
+  var response = await http
+      .get(Uri.parse("https://corona.lmao.ninja/v3/covid-19/countries"));
   if (response.statusCode == 200) {
     var jsonData = jsonDecode(response.body);
     List<Country> countries = [];
@@ -40,3 +40,37 @@ Future fetchAllCountries() async {
   } else
     throw Exception("Failed to load countries!!");
 }
+
+Future<Map> getData(String country) async {
+  final Uri url = Uri.https("disease.sh", "/v3/covid-19/countries",
+      {"country": country, "strict": true});
+  http.Response response = await http.get(url);
+  Map<String, dynamic> countryData = {};
+  if (response.statusCode == 200) {
+    var body = jsonDecode(response.body);
+    countryData.putIfAbsent("name", () => body["country"]);
+    countryData.putIfAbsent("population", () => body["population"]);
+    countryData.putIfAbsent("active", () => body["active"]);
+    countryData.putIfAbsent("deaths", () => body["deaths"]);
+    countryData.putIfAbsent("recovered", () => body["recovered"]);
+    countryData.putIfAbsent("critical", () => body["critical"]);
+    countryData.putIfAbsent("flag", () => body["countryInfo"]["flag"]);
+    countryData.putIfAbsent("tests", () => body["tests"]);
+    countryData.putIfAbsent("total", () => body["cases"]);
+    return countryData;
+  }
+}
+
+/*Country _convert(json) {
+  final name = json["country"];
+  final population = json["population"];
+  final active = json["active"];
+  final recovered = json["recovered"];
+  final deaths = json["deaths"];
+  final totalCases = json["cases"];
+  final critical = json["critical"];
+  final tests = json["tests"];
+  final flag = json["countryInfo"].fifth("flag");
+  return Country(name, population, totalCases, deaths, recovered, tests, active,
+      critical, flag);
+}*/
