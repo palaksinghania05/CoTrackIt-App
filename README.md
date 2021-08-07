@@ -1,14 +1,46 @@
-# Covid_Tracker
+# CoTrackIt - A Covid Tracker App
 
-A Flutter Project named "CoTrackIt" where we can see updated covid numbers of about 200+ countries.
+---
 
-## Getting Started
+### Table of Contents
 
-A few resources to get you started if you are also interested in making your first Flutter project:
+- [Description](#description)
+- [How To Use](#how-to-use)
+- [Author Info](#author-info)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+---
 
-For help getting started with Flutter, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Description
+
+This project comprises of a covid tracker app called CoTrackIt which aims at providing updated information about rising covid cases in all over the world to the users. It provides regular updates of over 200 countries. 
+
+#### Technologies
+
+- Flutter
+- Dart Programming
+
+---
+
+## How To Use
+
+#### Installation
+
+- Clone this repository.
+- Open the project in Android Studio or VSCode.
+- Install Flutter and dart plugins.
+- Open pubsec.yaml file and run "flutter pub get" in the terminal.
+- Install and emulator or connect your device to the editor.
+- Run main.dart file.
+
+#### API Reference
+
+- disease.sh - An open-source API sourced from Worldometers
+
+---
+
+## Developer Info
+
+- LinkedIn - [Palak Singhania](https://www.linkedin.com/in/palak-s-837b1519b/)
+
+---
+[Back To The Top](#read-me-template)
